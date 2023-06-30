@@ -11,19 +11,19 @@ export default function createSceneRenderer(canvas: HTMLCanvasElement, imageLoad
   const sceneWidth = imageLoader.getNumImages() * canvas.width;
   let lastRendered: number | null = null;
 
-  function indecesForOffset(offset: number): number[] {
+  function indicesForOffset(offset: number): number[] {
     return [
       Math.floor(offset / sceneWidth * imageLoader.getNumImages()),
       Math.ceil(offset / sceneWidth * imageLoader.getNumImages())
     ];
   }
 
-  function padPreload(indeces: number[]): number[] {
-    const last = indeces[indeces.length - 1];
+  function padPreload(indices: number[]): number[] {
+    const last = indices[indices.length - 1];
     if (last + 1 < imageLoader.getNumImages()) {
-      indeces.push(last + 1);
+      indices.push(last + 1);
     }
-    return indeces;
+    return indices;
   }
 
   function scaleForImage(image: HTMLImageElement): number {
@@ -47,9 +47,9 @@ export default function createSceneRenderer(canvas: HTMLCanvasElement, imageLoad
 
   return function (slideOffset: number) {
     if (lastRendered !== slideOffset) {
-      const indeces = padPreload(indecesForOffset(slideOffset));
-      const left = slideOffset - indeces[0] * canvas.width;
-      imageLoader.getImages(indeces, function (images) {
+      const indices = padPreload(indicesForOffset(slideOffset));
+      const left = slideOffset - indices[0] * canvas.width;
+      imageLoader.getImages(indices, function (images) {
         requestAnimationFrame(function () {
           ctx.fillStyle = "rgb(242, 242, 242)";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
