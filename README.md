@@ -1,5 +1,12 @@
 # Image Slider
 ## 🚀 Try Now - [DEMO](https://ts-canvas-slider.vercel.app/) 
+
+
+
+https://github.com/aakashapoorv/ts-canvas-slider/assets/5700430/a204b301-f1f9-415b-8457-a96f17137d38
+
+
+
 The Image Slider is a web application that allows you to view a collection of images in a slider format. It provides a user-friendly interface for navigating through the images and supports drag interaction for smooth sliding.
 
 ```
