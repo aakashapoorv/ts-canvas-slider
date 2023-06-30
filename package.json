@@ -1,0 +1,23 @@
+{
+    "name": "ts-canvas-slider",
+    "version": "1.0.0",
+    "description": "Aakash Apoorv - ts-canvas-slider",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html --open",
+        "build": "parcel build index.html"
+    },
+    "dependencies": {
+        "reflect-metadata": "0.1.13"
+    },
+    "devDependencies": {
+        "parcel-bundler": "^1.6.1",
+        "parcel-plugin-static-files-copy": "^2.6.0",
+        "typescript": "^5.1.6"
+    },
+    "staticFiles": {
+        "staticPath": "public",
+        "watcherGlob": "**"
+    },
+    "keywords": []
+}
