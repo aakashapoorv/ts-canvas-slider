@@ -18,23 +18,23 @@ export default function imageLoader(imagePath: string, numImages: number): Image
         }
     };
 
-    function getImages(indeces: number[], callback: (images: (HTMLImageElement | null)[]) => void): void {
+    function getImages(indices: number[], callback: (images: (HTMLImageElement | null)[]) => void): void {
         let images: (HTMLImageElement | null)[] = [];
         let numLoaded = 0;
 
-        indeces = Array.from(new Set(indeces));
+        indices = Array.from(new Set(indices));
 
         let imageLoaded = function (img: HTMLImageElement | null, idx: number) {
             images[idx] = img;
             numLoaded++;
 
-            if (numLoaded === indeces.length) {
+            if (numLoaded === indices.length) {
                 callback(images);
             }
         };
 
-        for (let i = 0; i < indeces.length; i++) {
-            let idx = indeces[i];
+        for (let i = 0; i < indices.length; i++) {
+            let idx = indices[i];
             getImage(idx, function (img) {
                 imageLoaded(img, i);
             });
